@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from api.models import SpaceX
+from api.models import *
 
 
 class SpaceXSerializer(serializers.ModelSerializer):
@@ -8,3 +8,7 @@ class SpaceXSerializer(serializers.ModelSerializer):
         model = SpaceX
         fields = '__all__'
 
+class ResultsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Results
+        fields = '__all__'

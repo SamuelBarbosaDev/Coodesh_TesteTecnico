@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #outros
     'rest_framework',
+    'rest_framework.au',
     'dr_scaffold',
+    'drf_yasg',
     #apps
     'api',
 ]

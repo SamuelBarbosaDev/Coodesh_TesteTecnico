@@ -7,8 +7,19 @@ class SpaceX(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.message}"
 
     class Meta:
         verbose_name_plural = "Space X"
 
+class Results(models.Model):
+
+    name = models.CharField(max_length=255, null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.name}"
+
+    class Meta:
+        verbose_name_plural = "Results"
