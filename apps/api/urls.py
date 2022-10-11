@@ -12,6 +12,10 @@ router.register(r'Links', LinksViewSet)
 router.register(r'Patch', PatchViewSet)
 router.register(r'Reddit', RedditViewSet)
 router.register(r'Flickr', FlickrViewSet)
+router.register(r'launches', ResultViewSet)
+router.register(r'launches/<int:pk>', ResultViewSet)
+
+
 
 
 

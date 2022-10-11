@@ -1,6 +1,7 @@
 from rest_framework import mixins, permissions, viewsets
 from rest_framework.response import Response
 from django.http import JsonResponse
+from rest_framework import generics
 from api.models import *
 from api.serializers import *
 
@@ -39,7 +40,17 @@ class FlickrViewSet(viewsets.ModelViewSet):
     queryset = Flickr.objects.all()
     serializer_class = FlickrSerializer
 
+
+class ResultViewSet(viewsets.ModelViewSet):
+    queryset = Result.objects.all()
+    serializer_class = ResultSerializer
+
+class StatsViewSet(viewsets.ModelViewSet):
+    queryset = Result.objects.all()
+    serializer_class = ResultSerializer
+
+
 def spaceX(request):
     data = list(SpaceX.objects.values())
 
-    return JsonResponse(data, safe = False)
+    return JsonResponse(data, safe=False)
