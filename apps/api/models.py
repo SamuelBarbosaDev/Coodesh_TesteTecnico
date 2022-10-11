@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.db import models
 
 
@@ -11,7 +12,155 @@ class SpaceX(models.Model):
         verbose_name_plural = 'Space X'
 
 
+class Fairings(models.Model):
+    reused = models.BooleanField(
+        null=True,
+        blank=True
+    )
+
+    recovery_attempt = models.BooleanField(
+        null=True,
+        blank=True
+    )
+
+    recovered = models.BooleanField(
+        null=True,
+        blank=True
+    )
+
+    ships = models.JSONField(
+        null=True,
+        blank=True
+    )
+
+    class Meta:
+        verbose_name_plural = 'Fairings'
+
+
+class Patch(models.Model):
+    small = models.URLField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+
+    large = models.URLField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+
+
+class Reddit(models.Model):
+    campaign = models.URLField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+
+    launch = models.URLField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+
+    media = models.URLField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+
+    recovery = models.URLField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+
+
+class Flickr(models.Model):
+    small = models.JSONField(
+        null=True,
+        blank=True
+    )
+
+    original = models.JSONField(
+        null=True,
+        blank=True
+    )
+
+
+class Links(models.Model):
+    patch = models.ManyToManyField(
+        Patch, 
+    )
+
+    reddit = models.ManyToManyField(
+        Reddit, 
+    )
+
+    flickr = models.ManyToManyField(
+        Flickr, 
+    )
+
+    presskit = models.URLField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+
+    webcast = models.URLField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+
+    youtube_id = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True
+    )
+
+    article = models.URLField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+
+    wikipedia = models.URLField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+
+    class Meta:
+        verbose_name_plural = "Links"
+
+
+class Launches(models.Model):
+    spacex_api = models.JSONField(
+        null=True,
+        blank=True
+    )
+
+    class Meta:
+        verbose_name_plural = 'Launches'
+
+
 class Results(models.Model):
+    fairings = models.OneToOneField(
+        Fairings,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
+
+    links = models.OneToOneField(
+        Links, 
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
+
     static_fire_date_utc = models.DateTimeField(
         null=True,
         blank=True
@@ -43,7 +192,7 @@ class Results(models.Model):
         blank=True
     )
 
-    failures_ships = models.JSONField(
+    failures = models.JSONField(
         null=True,
         blank=True
     )
@@ -54,22 +203,22 @@ class Results(models.Model):
         blank=True
     )
 
-    crew_ships = models.JSONField(
+    crew = models.JSONField(
         null=True,
         blank=True
     )
 
-    ships_ships = models.JSONField(
+    ships = models.JSONField(
         null=True,
         blank=True
     )
 
-    capsules_ships = models.JSONField(
+    capsules = models.JSONField(
         null=True,
         blank=True
     )
 
-    payloads_ships = models.JSONField(
+    payloads = models.JSONField(
         null=True,
         blank=True
     )
@@ -135,136 +284,10 @@ class Results(models.Model):
         blank=True
     )
 
-    iid = models.CharField(
-        max_length=255,
-        null=True,
-        blank=True
-    )
+    id = models.BigAutoField(primary_key=True)
 
     def __str__(self):
         return f'{self.name}'
 
     class Meta:
         verbose_name_plural = 'Results'
-
-
-class Fairings(models.Model):
-    reused = models.BooleanField(
-        null=True,
-        blank=True
-    )
-
-    recovery_attempt = models.BooleanField(
-        null=True,
-        blank=True
-    )
-
-    recovered = models.BooleanField(
-        null=True,
-        blank=True
-    )
-
-    ships = models.JSONField(
-        null=True,
-        blank=True
-    )
-
-    class Meta:
-        verbose_name_plural = 'Fairings'
-
-
-class Links(models.Model):
-    presskit = models.URLField(
-        max_length=500,
-        null=True,
-        blank=True
-    )
-
-    webcast = models.URLField(
-        max_length=500,
-        null=True,
-        blank=True
-    )
-
-    youtube_id = models.CharField(
-        max_length=255,
-        null=True,
-        blank=True
-    )
-
-    article = models.URLField(
-        max_length=500,
-        null=True,
-        blank=True
-    )
-
-    wikipedia = models.URLField(
-        max_length=500,
-        null=True,
-        blank=True
-    )
-
-    class Meta:
-        verbose_name_plural = 'Links'
-
-
-class Patch(models.Model):
-    small = models.URLField(
-        max_length=500,
-        null=True,
-        blank=True
-    )
-
-    large = models.URLField(
-        max_length=500,
-        null=True,
-        blank=True
-    )
-
-
-class Reddit(models.Model):
-    campaign = models.URLField(
-        max_length=500,
-        null=True,
-        blank=True
-    )
-
-    launch = models.URLField(
-        max_length=500,
-        null=True,
-        blank=True
-    )
-
-    media = models.URLField(
-        max_length=500,
-        null=True,
-        blank=True
-    )
-
-    recovery = models.URLField(
-        max_length=500,
-        null=True,
-        blank=True
-    )
-
-
-class Flickr(models.Model):
-    small_ships = models.JSONField(
-        null=True,
-        blank=True
-    )
-
-    original = models.URLField(
-        max_length=500,
-        null=True,
-        blank=True
-    )
-
-class Result(models.Model):
-    spacex_api = models.JSONField(
-        null=True,
-        blank=True
-    )
-
-    class Meta:
-        verbose_name_plural = 'Result'

@@ -44,7 +44,7 @@ class FlickrSerializer(serializers.ModelSerializer):
         model = Flickr
         fields = '__all__'
 
-class ResultSerializer(serializers.ModelSerializer):
+class LaunchesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Result
+        model = Launches
         fields = '__all__'

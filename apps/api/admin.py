@@ -30,8 +30,8 @@ class RedditAdmin(admin.ModelAdmin):
 class FlickrAdmin(admin.ModelAdmin):
     exclude = ()
 
-@admin.register(Result)
-class ResultAdmin(admin.ModelAdmin):
+@admin.register(Launches)
+class LaunchesAdmin(admin.ModelAdmin):
     exclude = ()
 
 
