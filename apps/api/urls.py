@@ -7,8 +7,16 @@ router = routers.DefaultRouter()
 
 router.register(r'SpaceX', SpaceXViewSet)
 router.register(r'Results', ResultsViewSet)
+router.register(r'Fairings', FairingsViewSet)
+router.register(r'Links', LinksViewSet)
+router.register(r'Patch', PatchViewSet)
+router.register(r'Reddit', RedditViewSet)
+router.register(r'Flickr', FlickrViewSet)
+
 
 
 urlpatterns = [
-    path("routes/", include(router.urls)),
+    path("v1/api/", include(router.urls)),
+    path("", spaceX, name='spaceX'),
+
 ]
