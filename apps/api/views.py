@@ -41,15 +41,6 @@ class FlickrViewSet(viewsets.ModelViewSet):
     serializer_class = FlickrSerializer
 
 
-class ResultViewSet(viewsets.ModelViewSet):
-    queryset = Launches.objects.all()
-    serializer_class = LaunchesSerializer
-
-class StatsViewSet(viewsets.ModelViewSet):
-    queryset = Launches.objects.all()
-    serializer_class = LaunchesSerializer
-
-
 def spaceX(request):
     data = list(SpaceX.objects.values())
 

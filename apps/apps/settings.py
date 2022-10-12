@@ -41,14 +41,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #DjangoRestFramework apps
+    # DjangoRestFramework apps
     'rest_framework',
     'rest_framework.authtoken',
-    #django extensions
+    # django extensions
+    'django_extensions',
     'dr_scaffold',
+    'django_seed',
     'drf_yasg',
     'djoser',
-    #meus apps
+    # meus apps
     'api',
 ]
 

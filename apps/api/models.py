@@ -1,4 +1,3 @@
-from tabnanny import verbose
 from django.db import models
 
 
@@ -29,6 +28,7 @@ class Fairings(models.Model):
     )
 
     ships = models.JSONField(
+        default=list,
         null=True,
         blank=True
     )
@@ -79,27 +79,38 @@ class Reddit(models.Model):
 
 class Flickr(models.Model):
     small = models.JSONField(
+        default=list,
         null=True,
         blank=True
     )
 
     original = models.JSONField(
+        default=list,
         null=True,
         blank=True
     )
 
 
 class Links(models.Model):
-    patch = models.ManyToManyField(
-        Patch, 
+    patch = models.ForeignKey(
+        Patch,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
     )
 
-    reddit = models.ManyToManyField(
-        Reddit, 
+    reddit = models.ForeignKey(
+        Reddit,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
     )
 
-    flickr = models.ManyToManyField(
-        Flickr, 
+    flickr = models.ForeignKey(
+        Flickr,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
     )
 
     presskit = models.URLField(
@@ -136,26 +147,16 @@ class Links(models.Model):
         verbose_name_plural = "Links"
 
 
-class Launches(models.Model):
-    spacex_api = models.JSONField(
-        null=True,
-        blank=True
-    )
-
-    class Meta:
-        verbose_name_plural = 'Launches'
-
-
 class Results(models.Model):
-    fairings = models.OneToOneField(
+    fairings = models.ForeignKey(
         Fairings,
         on_delete=models.CASCADE,
         null=True,
         blank=True
     )
 
-    links = models.OneToOneField(
-        Links, 
+    links = models.ForeignKey(
+        Links,
         on_delete=models.CASCADE,
         null=True,
         blank=True
@@ -193,6 +194,7 @@ class Results(models.Model):
     )
 
     failures = models.JSONField(
+        default=list,
         null=True,
         blank=True
     )
@@ -204,21 +206,25 @@ class Results(models.Model):
     )
 
     crew = models.JSONField(
+        default=list,
         null=True,
         blank=True
     )
 
     ships = models.JSONField(
+        default=list,
         null=True,
         blank=True
     )
 
     capsules = models.JSONField(
+        default=list,
         null=True,
         blank=True
     )
 
     payloads = models.JSONField(
+        default=list,
         null=True,
         blank=True
     )
@@ -265,6 +271,7 @@ class Results(models.Model):
     )
 
     cores = models.JSONField(
+        default=list,
         null=True,
         blank=True
     )
