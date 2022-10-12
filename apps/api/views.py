@@ -41,7 +41,7 @@ class FlickrViewSet(viewsets.ModelViewSet):
     serializer_class = FlickrSerializer
 
 
-def spaceX(request):
-    data = list(SpaceX.objects.values())
+# def spaceX(request):
+#     data = list(SpaceX.objects.values())
 
-    return JsonResponse(data, safe=False)
+#     return JsonResponse(data, safe=False)

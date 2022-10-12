@@ -5,7 +5,7 @@ from api.models import *
 class SpaceXSerializer(serializers.ModelSerializer):
     class Meta:
         model = SpaceX
-        fields = '__all__'
+        fields = ['message']
 
 
 class FairingsSerializer(serializers.ModelSerializer):

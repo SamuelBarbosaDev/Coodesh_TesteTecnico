@@ -3,10 +3,12 @@
 <p>...</p>
 
 ## URLS:
-- [GET]/v1/api/swagger/
-- [GET]/v1/api/doc/
-- [GET]/v1/api/Results
-- [GET]/v1/api/
+- [GET]/message
+- [GET]/launches
+- [GET]/swagger/
+- [GET]/doc/
+
+
 
 ## API:
 ```
