@@ -48,7 +48,7 @@ python manage.py runserver
 ```
 
 ## Script / Comando customizado do Django:
-Alimenta o banco de dados com os dados de lançamentos da SpaceX API no back-end.
+Alimenta o banco de dados com os dados de lançamentos da SpaceX.
 
 - Excute o comando para comsumi a api da SpaceX.
 ```
