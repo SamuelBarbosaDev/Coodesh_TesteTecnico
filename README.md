@@ -15,3 +15,29 @@
 https://api.spacexdata.com/v5/launches/latest
 ```
 
+## Passo a Passo:
+
+- Entre na pasta /apps
+```
+cd /apps
+```
+
+- excute as migrations
+```
+python manage.py migrate
+```
+
+- Crie um usuario admin
+```
+python manage.py createsuperuser --email admin@admin.com --username admin
+```
+
+- Crie sua senha
+```
+******
+```
+
+- Repita a senha
+```
+******
+```
