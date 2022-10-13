@@ -35,3 +35,8 @@ class RedditAdmin(admin.ModelAdmin):
 @admin.register(Flickr)
 class FlickrAdmin(admin.ModelAdmin):
     exclude = ()
+
+
+@admin.register(Cores)
+class CoresAdmin(admin.ModelAdmin):
+    exclude = ()

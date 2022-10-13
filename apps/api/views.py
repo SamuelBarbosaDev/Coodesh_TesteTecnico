@@ -11,9 +11,9 @@ class SpaceXViewSet(viewsets.ModelViewSet):
     serializer_class = SpaceXSerializer
 
 
-class ResultsViewSet(viewsets.ModelViewSet):
+class StatsViewSet(viewsets.ModelViewSet):
     queryset = Results.objects.all()
-    serializer_class = ResultsSerializer
+    serializer_class = StatsSerializer
 
 
 class FairingsViewSet(viewsets.ModelViewSet):
@@ -21,9 +21,9 @@ class FairingsViewSet(viewsets.ModelViewSet):
     serializer_class = FairingsSerializer
 
 
-class LinksViewSet(viewsets.ModelViewSet):
-    queryset = Links.objects.all()
-    serializer_class = LinksSerializer
+class CoresViewSet(viewsets.ModelViewSet):
+    queryset = Cores.objects.all()
+    serializer_class = CoresSerializer
 
 
 class PatchViewSet(viewsets.ModelViewSet):
@@ -41,7 +41,17 @@ class FlickrViewSet(viewsets.ModelViewSet):
     serializer_class = FlickrSerializer
 
 
-# def spaceX(request):
+class LinksViewSet(viewsets.ModelViewSet):
+    queryset = Links.objects.all()
+    serializer_class = LinksSerializer
+
+
+class ResultsViewSet(viewsets.ModelViewSet):
+    queryset = Results.objects.all()
+    serializer_class = ResultsSerializer
+
+
+# def space_x(request):
 #     data = list(SpaceX.objects.values())
 
 #     return JsonResponse(data, safe=False)

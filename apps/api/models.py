@@ -37,6 +37,58 @@ class Fairings(models.Model):
         verbose_name_plural = 'Fairings'
 
 
+class Cores(models.Model):
+    core = models.CharField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+
+    flight = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True
+    )
+
+    gridfins = models.BooleanField(
+        null=True,
+        blank=True,
+    )
+
+    legs = models.BooleanField(
+        null=True,
+        blank=True,
+    )
+
+    reused = models.BooleanField(
+        null=True,
+        blank=True,
+    )
+
+    landing_attempt = models.BooleanField(
+        null=True,
+        blank=True,
+    )
+
+    landing_success = models.BooleanField(
+        null=True,
+        blank=True,
+    )
+
+    landing_type = models.CharField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+    landpad = models.CharField(
+        max_length=500,
+        null=True,
+        blank=True
+    )
+
+    class Meta:
+        verbose_name_plural = 'Cores'
+
+
 class Patch(models.Model):
     small = models.URLField(
         max_length=500,
@@ -270,11 +322,13 @@ class Results(models.Model):
         blank=True
     )
 
-    cores = models.JSONField(
-        default=list,
-        null=True,
-        blank=True
-    )
+    # cores = models.JSONField(
+    #     default=list,
+    #     null=True,
+    #     blank=True
+    # )
+
+    cores = models.ManyToManyField(Cores)
 
     auto_update = models.BooleanField(
         null=True,
