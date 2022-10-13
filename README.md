@@ -17,9 +17,9 @@ https://api.spacexdata.com/v5/launches/latest
 
 ## Passo a Passo:
 
-- Entre na pasta /apps
+- Entre na pasta apps/
 ```
-cd /apps
+cd apps/
 ```
 
 - excute as migrations
@@ -45,4 +45,12 @@ python manage.py createsuperuser --email admin@admin.com --username admin
 - Excute o projeto localmente, Fim.
 ```
 python manage.py runserver
+```
+
+## Script / Comando customizado do Django:
+Alimenta o banco de dados com os dados de lançamentos da SpaceX API no back-end.
+
+- Excute o comando para comsumi a api da SpaceX.
+```
+python manage.py store_launching_data
 ```
