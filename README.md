@@ -18,6 +18,21 @@ https://api.spacexdata.com/v5/launches/latest
 
 ## Passo a Passo:
 
+- Crie um ambiente virtual
+```
+python -m venv venv
+```
+
+- Ative o ambiente virtual
+```
+source venv/bin/activate
+```
+
+- instale as dependências
+```
+pip install -r requirements.txt
+```
+
 - Entre na pasta apps/
 ```
 cd apps/
