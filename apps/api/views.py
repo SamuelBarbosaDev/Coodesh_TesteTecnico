@@ -35,6 +35,19 @@ class ResultsViewSet(viewsets.ModelViewSet):
     queryset = Results.objects.all()
     serializer_class = ResultsSerializer
 
+class StatsViewSet(viewsets.ModelViewSet):
+    queryset = Results.objects.all()
+    serializer_class = StatsSerializer
+
+# def space_x(request):
+#     data = list(SpaceX.objects.values())
+
+#     return JsonResponse(data, safe=False)
+
+# def launches(request):
+#     data = list(Results.objects.values())
+
+#     return JsonResponse(data, safe=False)
 
 # def space_x(request):
 #     data = list(SpaceX.objects.values())

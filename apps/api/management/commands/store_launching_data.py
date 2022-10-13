@@ -57,7 +57,7 @@ class StoreLaunchingData:
         self.results_date_local = self.data_json['date_local']
         self.results_date_precision = self.data_json['date_precision']
         self.results_upcoming = self.data_json['upcoming']
-        self.results_core = self.data_json['cores'][0]['core']
+        self.results_core = self.data_json['cores'][0]
         self.results_auto_update = self.data_json['auto_update']
         self.results_tbd = self.data_json['tbd']
         self.results_launch_library_id = self.data_json['launch_library_id']

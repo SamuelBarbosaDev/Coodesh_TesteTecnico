@@ -11,12 +11,6 @@ class SpaceXAdmin(admin.ModelAdmin):
 class ResultsAdmin(admin.ModelAdmin):
     exclude = ()
 
-
-# @admin.register(Fairings)
-# class FairingsAdmin(admin.ModelAdmin):
-#     exclude = ()
-
-
 @admin.register(Links)
 class LinksAdmin(admin.ModelAdmin):
     exclude = ()
@@ -36,7 +30,3 @@ class RedditAdmin(admin.ModelAdmin):
 class FlickrAdmin(admin.ModelAdmin):
     exclude = ()
 
-
-@admin.register(Cores)
-class CoresAdmin(admin.ModelAdmin):
-    exclude = ()

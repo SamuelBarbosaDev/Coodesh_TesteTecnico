@@ -3,13 +3,11 @@
 <p>...</p>
 
 ## URLS:
-- [GET] /
+- [GET] /message
 - [GET] /launches
-- [GET] /launches/stats
-- [GET] /v1/api/message/
-- [GET] /v1/api/launches/
-- [GET] /v1/api/swagger/
-- [GET] /v1/api/doc/
+- [GET] /stats
+- /v1/api/swagger/
+- /v1/api/doc/
 
 
 

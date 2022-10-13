@@ -6,8 +6,9 @@ from api.views import *
 router = routers.DefaultRouter()
 router.register(r'message', SpaceXViewSet, basename='message')
 router.register(r'launches', ResultsViewSet, basename='launches')
+router.register(r'stats', StatsViewSet, basename='stats')
 
 
 urlpatterns = [
-    path("v1/api/", include(router.urls)),
+    path("", include(router.urls)),
 ]

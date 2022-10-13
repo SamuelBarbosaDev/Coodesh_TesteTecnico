@@ -57,3 +57,12 @@ class ResultsSerializer(serializers.ModelSerializer):
             'tbd', 'launch_library_id', 'id',
         ]
         depth = 1
+
+class StatsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Results
+        fields = [
+            'success', 'rocket', 'cores',
+        ]
+        depth = 1
