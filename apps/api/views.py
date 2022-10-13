@@ -11,21 +11,6 @@ class SpaceXViewSet(viewsets.ModelViewSet):
     serializer_class = SpaceXSerializer
 
 
-class StatsViewSet(viewsets.ModelViewSet):
-    queryset = Results.objects.all()
-    serializer_class = StatsSerializer
-
-
-class FairingsViewSet(viewsets.ModelViewSet):
-    queryset = Fairings.objects.all()
-    serializer_class = FairingsSerializer
-
-
-class CoresViewSet(viewsets.ModelViewSet):
-    queryset = Cores.objects.all()
-    serializer_class = CoresSerializer
-
-
 class PatchViewSet(viewsets.ModelViewSet):
     queryset = Patch.objects.all()
     serializer_class = PatchSerializer

@@ -12,9 +12,9 @@ class ResultsAdmin(admin.ModelAdmin):
     exclude = ()
 
 
-@admin.register(Fairings)
-class FairingsAdmin(admin.ModelAdmin):
-    exclude = ()
+# @admin.register(Fairings)
+# class FairingsAdmin(admin.ModelAdmin):
+#     exclude = ()
 
 
 @admin.register(Links)

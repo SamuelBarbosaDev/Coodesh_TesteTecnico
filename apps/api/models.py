@@ -11,32 +11,6 @@ class SpaceX(models.Model):
         verbose_name_plural = 'Space X'
 
 
-class Fairings(models.Model):
-    reused = models.BooleanField(
-        null=True,
-        blank=True
-    )
-
-    recovery_attempt = models.BooleanField(
-        null=True,
-        blank=True
-    )
-
-    recovered = models.BooleanField(
-        null=True,
-        blank=True
-    )
-
-    ships = models.JSONField(
-        default=list,
-        null=True,
-        blank=True
-    )
-
-    class Meta:
-        verbose_name_plural = 'Fairings'
-
-
 class Cores(models.Model):
     core = models.CharField(
         max_length=500,
@@ -200,9 +174,8 @@ class Links(models.Model):
 
 
 class Results(models.Model):
-    fairings = models.ForeignKey(
-        Fairings,
-        on_delete=models.CASCADE,
+    fairings = models.JSONField(
+        default=list,
         null=True,
         blank=True
     )
@@ -322,13 +295,11 @@ class Results(models.Model):
         blank=True
     )
 
-    # cores = models.JSONField(
-    #     default=list,
-    #     null=True,
-    #     blank=True
-    # )
-
-    cores = models.ManyToManyField(Cores)
+    cores = models.JSONField(
+        default=list,
+        null=True,
+        blank=True
+    )
 
     auto_update = models.BooleanField(
         null=True,
@@ -340,15 +311,16 @@ class Results(models.Model):
         blank=True
     )
 
-    launch_library_id = models.BooleanField(
+    launch_library_id = models.CharField(
+        max_length=255,
         null=True,
         blank=True
     )
 
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
 
-    def __str__(self):
-        return f'{self.name}'
+    # def __str__(self):
+    #     return f'{self.name}'
 
     class Meta:
         verbose_name_plural = 'Results'

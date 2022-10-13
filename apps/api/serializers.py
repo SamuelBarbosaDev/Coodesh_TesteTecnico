@@ -8,41 +8,6 @@ class SpaceXSerializer(serializers.ModelSerializer):
         fields = ['message']
 
 
-class FairingsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Fairings
-        fields = [
-            'reused', 'recovery_attempt',
-            'recovered', 'ships',
-        ]
-
-
-class CoresSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Cores
-        fields = [
-            'core', 'flight', 'gridfins',
-            'legs', 'reused', 'landing_attempt',
-            'landing_success', 'landing_type', 'landpad',
-        ]
-
-
-class StatsSerializer(serializers.ModelSerializer):
-    cores = serializers.SlugRelatedField(
-        many=True,
-        read_only=True,
-        slug_field='reused'
-    )
-
-    class Meta:
-        model = Results
-        fields = [
-            'success', 'cores', 'rocket'
-        ]
-
-        depth = 1
-
-
 class PatchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Patch
@@ -76,9 +41,7 @@ class LinksSerializer(serializers.ModelSerializer):
 
 
 class ResultsSerializer(serializers.ModelSerializer):
-    cores = CoresSerializer(many=True)
     links = LinksSerializer(required=False)
-    fairings = FairingsSerializer(required=False)
 
     class Meta:
         model = Results
