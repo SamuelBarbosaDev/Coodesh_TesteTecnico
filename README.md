@@ -41,3 +41,8 @@ python manage.py createsuperuser --email admin@admin.com --username admin
 ```
 ******
 ```
+
+- Excute o projeto localmente, Fim.
+```
+python manage.py runserver
+```
