@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     # django extensions
     'django_extensions',
+    'django_crontab',
     'dr_scaffold',
     'django_seed',
     'drf_yasg',
@@ -147,3 +148,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRONJOBS = [
+    ('*/1 * * * *', 'api.cron.comando')
+]
